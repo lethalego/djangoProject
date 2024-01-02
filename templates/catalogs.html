@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'includes/sidebar_menu.html' %}
+
+<head>
+    <title></title>
+</head>
+<body>
+<div id="content">
+    <div class="form-container">
+        <form method="post" action="{% url 'list_earth_engine_catalogs' %}">
+            {% csrf_token %}
+            <label for="catalogSelector">Select a Catalog:</label>
+            <select name="catalogSelector" id="catalogSelector">
+                {% for catalogId in catalog_main_id_list %}
+                    <option value="{{ catalogId }}"
+                            {% if catalogId == selected_catalog %}selected{% endif %}>{{ catalogId }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Show Catalog">
+        </form>
+    </div>
+
+    {% if selected_catalog %}
+    <h2>{{ selected_catalog }} Catalogs:</h2>
+    <h2>Catalog Assets ({{ catalog_size }} items):</h2>
+
+    {% if grouped_catalogs %}
+
+        {% for asset_type, asset_group in grouped_catalogs.items %}
+           <h3>{{ asset_type }} Group ({{ asset_group|length }} items):</h3>
+            <ul>
+                {% for asset in asset_group %}
+                    <li>
+                        <strong>Name:</strong> {{ asset.name }}<br>
+                        <strong>ID:</strong> {{ asset.id }}<br>
+                        <strong>Last Update Time:</strong> {{ asset.updateTime }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>No catalogs available for the selected item.</p>
+    {% endif %}
+{% endif %}
+</div>
+</body>
+</html>

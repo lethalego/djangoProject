@@ -1,0 +1,115 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+#sidebar {
+    width: 200px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#sidebar h1 {
+    text-align: center;
+    color: #61dafb;
+    margin-bottom: 20px; /* Başlık ile menü arasına boşluk ekledik */
+}
+
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar ul li {
+    padding: 15px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+#sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    background-color: #555;
+    border-radius: 5px; /* Kenarları yumuşatmak için */
+}
+
+#sidebar ul li a:hover {
+    background-color: #777;
+}
+
+#content {
+    flex: 1;
+    padding: 20px;
+     max-height: 80vh; /* Sayfanın yüksekliğinin yüzde 80'si kadar maksimum yükseklik */
+    overflow-y: auto; /* Yükseklik sınırlarını aştığında dikey kaydırma çubuğu */
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 80vh; /* 80vh: Sayfanın yüksekliğinin yüzde 80'i */
+    overflow-y: auto; /* Uzun listeler için kaydırma çubuğunu etkinleştirin */
+}
+
+li {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+li:first-child {
+    /*font-weight: bold;*/
+}
+
+li::before {
+    content: '•';
+    color: #4CAF50;
+    margin-right: 5px;
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
+
+h3 {
+    margin-top: 20px; /* Her grup başlığı arasına biraz boşluk ekleyin */
+}
